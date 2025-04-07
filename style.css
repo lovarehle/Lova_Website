@@ -1,9 +1,10 @@
-html {
+htm, bodyl {
     font-size: 100%;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
     /* Define the vh variable with a fallback */
     --vh: 1vh;
+    overscroll-behavior: none;
 }
 
 head::after {
