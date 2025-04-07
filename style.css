@@ -17,7 +17,7 @@ body {
     font-kerning: normal;
     font-weight: 200;
     background-color: #000;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.2;
     text-align: left;
     position: relative;
@@ -50,7 +50,7 @@ body {
     opacity: 1;
     transition: opacity 0.5s ease;
     cursor: default;
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
 
 .caption {
@@ -61,7 +61,7 @@ body {
     transform: translateX(-50%);
     z-index: 2;
     opacity: 1;
-    font-size: 17px !important;
+    font-size: 16px !important;
     line-height: 1.2;
     width: 95%;
     text-align: center;
@@ -85,7 +85,7 @@ body {
     z-index: 20;
     opacity: 1;
     transition: opacity 0.5s ease;
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
 
 .image-area {
@@ -142,16 +142,16 @@ body {
     z-index: 20;
     margin-block-start: 0em;
     margin-block-end: 0em;
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
 
 .info-text p {
-    font-size: 17px !important;
+    font-size: 16px !important;
     margin-top: 12px;
 }
 
 .loading-message {
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
 
 /* We can remove the caption-overlay entirely as it's no longer needed */
@@ -177,7 +177,7 @@ p {
     opacity: 1;
     transition: opacity 0.5s ease;
     cursor: default;
-    font-size: 17px !important;
+    font-size: 16px !important;
 }
 
 .info-text a {
