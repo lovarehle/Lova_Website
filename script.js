@@ -34,6 +34,25 @@ function updateViewportHeight() {
       { url: 'images/WoE_Story.mp4', caption: 'Works of Essence – Visual Identity, Socials. Team: Eliot Siekkinen Lydéen' },
   ];
   
+  // Function to make videos behave like GIFs
+function setupVideoAsGif(video) {
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'auto';
+
+    // Disable fullscreen, download, and other controls
+    video.setAttribute('disablePictureInPicture', '');
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremote');
+    video.removeAttribute('controls');  // Ensure no native controls
+
+    // Disable pointer interaction, so it behaves like a gif
+    video.style.pointerEvents = 'none';
+}
+
+// Apply the setup to all video elements on the page
+document.querySelectorAll('video').forEach(setupVideoAsGif);
   // Determine if the user is on a mobile device (screen width <= 730px)
   const isMobile = window.innerWidth <= 730;
   
