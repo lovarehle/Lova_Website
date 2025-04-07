@@ -295,6 +295,39 @@ document.addEventListener('DOMContentLoaded', async () => {
         enforceFontSizes();
         updateMedia();
     });
+    
+    // Prevent default touch behavior to avoid scrolling/bouncing
+    document.addEventListener('touchmove', function(event) {
+        event.preventDefault();
+    }, { passive: false });
+    
+    // Handle touch events for navigation
+    let touchStartX = 0;
+    
+    document.addEventListener('touchstart', function(event) {
+        touchStartX = event.touches[0].clientX;
+    }, { passive: true });
+    
+    document.addEventListener('touchend', function(event) {
+        const touchEndX = event.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        // If the info overlay is visible, don't navigate on swipe
+        if (infoOverlay.style.display === 'flex') {
+            return;
+        }
+        
+        // Detect swipe (minimum 30px movement)
+        if (Math.abs(diff) > 30) {
+            if (diff > 0) {
+                // Swipe left - next media
+                nextMedia();
+            } else {
+                // Swipe right - previous media
+                previousMedia();
+            }
+        }
+    }, { passive: true });
 });
 
 function setupCursorChange() {
