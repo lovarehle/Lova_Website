@@ -2,6 +2,8 @@ html {
     font-size: 100%;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
+    /* Define the vh variable with a fallback */
+    --vh: 1vh;
 }
 
 head::after {
@@ -25,7 +27,9 @@ body {
 .container {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    /* Use the custom vh variable for height */
+    height: 100vh; /* Fallback for browsers that don't support CSS variables */
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
     cursor: pointer;
     padding-bottom: constant(safe-area-inset-bottom); /* For older iOS versions */
@@ -51,7 +55,8 @@ body {
 
 .caption {
     position: absolute;
-    bottom: calc(12px + env(safe-area-inset-bottom)); /* Or constant() for older versions */
+    /* Use a combination of percentage and safe area inset for better positioning */
+    bottom: max(12px, env(safe-area-inset-bottom, 12px));
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -67,6 +72,8 @@ body {
     cursor: default;
     /* Ensure proper wrapping for multi-line text */
     white-space: normal;
+    /* Add padding to ensure text doesn't get cut off */
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .info {
@@ -117,11 +124,15 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    /* Use the custom vh variable for height */
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
     background-color: black;
     display: none;
     z-index: 10;
     cursor: default;
+    /* Add bottom padding for safe area */
+    padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .info-text {
@@ -172,11 +183,18 @@ p {
 .info-text a {
     color: inherit; /* Inherit the text color from the parent element */
     text-decoration: none; /* Remove the default underline */
-  }
+}
   
-  .info-text a:hover {
-    color:blue; /* Change the color to grey on hover */
-  }
+.info-text a:hover {
+    color:blue; /* Change the color to blue on hover */
+}
+
+/* Fix for iOS 100vh issues in fullscreen content like videos */
+.fullscreen-element {
+    height: 100vh; /* Fallback */
+    height: calc(var(--vh, 1vh) * 100);
+}
+
 @media (min-width: 730px) {
     body {
         font-size: 23px;
@@ -203,6 +221,8 @@ p {
         bottom: 20px;
         left: 50%;
         transform: translateX(-50%);
+        /* Ensure desktop also applies safe area if needed */
+        bottom: max(20px, env(safe-area-inset-bottom, 20px));
     }
 
     .info-text {
@@ -223,7 +243,6 @@ p {
         max-width: 80%;
         max-height: 80%;
         object-fit: contain;
-        
     }
 
     .header-text {
@@ -236,5 +255,15 @@ p {
         transition: opacity 0.5s ease;
         cursor: default;
         font-size: 23px !important;
+    }
+}
+
+/* Safari-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Safari specific override - helps with additional edge cases */
+    .container, 
+    .info-overlay {
+        /* Ensure height calculation accounts for Safari UI */
+        height: calc(var(--vh, 1vh) * 100);
     }
 }
