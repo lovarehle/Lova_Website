@@ -2,8 +2,10 @@ html {
     font-size: 100%;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
-    /* Define the vh variable with a fallback */
     --vh: 1vh;
+
+    /* Prevent overscroll */
+    overscroll-behavior: none;
 }
 
 head::after {
@@ -13,7 +15,7 @@ head::after {
 
 body {
     margin: 0;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-kerning: normal;
     font-weight: 200;
     background-color: #000;
@@ -22,6 +24,13 @@ body {
     text-align: left;
     position: relative;
     color: rgb(255, 255, 255);
+
+    /* Prevent scroll bounce */
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
 }
 
 .container {
