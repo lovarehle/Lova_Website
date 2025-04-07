@@ -5,7 +5,6 @@ html, body {
     /* Define the vh variable with a fallback */
     --vh: 1vh;
     overscroll-behavior: none;
-    margin: 0;
 }
 
 head::after {
