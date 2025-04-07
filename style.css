@@ -24,7 +24,7 @@ body {
     font-size: 17px;
     line-height: 1.2;
     text-align: left;
-    position: fixed;
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
