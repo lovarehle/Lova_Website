@@ -28,6 +28,8 @@ body {
     height: 100vh;
     overflow: hidden;
     cursor: pointer;
+    padding-bottom: constant(safe-area-inset-bottom); /* For older iOS versions */
+    padding-bottom: env(safe-area-inset-bottom);      /* The standard way */
 }
 
 .counter,
@@ -49,7 +51,7 @@ body {
 
 .caption {
     position: absolute;
-    bottom: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom)); /* Or constant() for older versions */
     left: 50%;
     transform: translateX(-50%);
     z-index: 2;
@@ -58,12 +60,9 @@ body {
     line-height: 1.2;
     width: 95%;
     text-align: center;
-    /* Remove overflow and max-height limitations */
     overflow: visible;
     max-height: none;
-    /* No pointer cursor since it's not clickable anymore */
     cursor: default;
-    /* Ensure proper wrapping for multi-line text */
     white-space: normal;
 }
 
@@ -198,7 +197,7 @@ p {
         right: 20px;
     }
     .caption {
-        bottom: 20px;
+        bottom: calc(20px + env(safe-area-inset-bottom));
         left: 50%;
         transform: translateX(-50%);
     }
