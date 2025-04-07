@@ -2,12 +2,12 @@ html {
     font-size: 100%;
     line-height: 1.15;
     -webkit-text-size-adjust: 100%;
- position: relative; /* instead of fixed */
-    width: 100%;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
     overflow: hidden;
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
+    position: relative; /* changed from fixed */
 }
 
 head::after {
@@ -17,26 +17,25 @@ head::after {
 
 body {
     margin: 0;
-    font-family:'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-kerning: normal;
     font-weight: 200;
     background-color: #000;
     font-size: 17px;
     line-height: 1.2;
     text-align: left;
-    position: relative;
-    width: 100%;
-    height: 100%;
+    height: 100vh;  /* changed from 100% */
+    width: 100vw;
     overflow: hidden;
     color: rgb(255, 255, 255);
     overscroll-behavior: none;
     -webkit-overflow-scrolling: touch;
+    position: relative; /* changed from fixed */
 }
 
 .container {
     position: relative;
     width: 100vw;
-    height: 100vh;
     height: calc(100vh - env(safe-area-inset-bottom));
     overflow: hidden;
     cursor: pointer;
@@ -69,7 +68,7 @@ body {
     bottom: max(12px, calc(12px + env(safe-area-inset-bottom)));
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 1000; /* Increased for visibility */
     opacity: 1;
     font-size: 17px !important;
     line-height: 1.2;
@@ -79,6 +78,7 @@ body {
     max-height: none;
     cursor: default;
     white-space: normal;
+    background: rgba(0, 0, 0, 0); /* optional: add bg if needed */
 }
 
 .info {
@@ -127,7 +127,6 @@ body {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
     height: calc(100vh - env(safe-area-inset-bottom));
     background-color: black;
     display: none;
@@ -159,7 +158,6 @@ body {
     font-size: 17px !important;
 }
 
-/* We can remove the caption-overlay entirely as it's no longer needed */
 .caption-overlay {
     display: none;
 }
@@ -186,12 +184,12 @@ p {
 }
 
 .info-text a {
-    color: inherit; /* Inherit the text color from the parent element */
-    text-decoration: none; /* Remove the default underline */
+    color: inherit;
+    text-decoration: none;
 }
   
 .info-text a:hover {
-    color:blue; /* Change the color to grey on hover */
+    color: blue;
 }
 
 @media (min-width: 730px) {
@@ -216,7 +214,7 @@ p {
         top: max(20px, env(safe-area-inset-top) + 20px);
         right: max(20px, env(safe-area-inset-right) + 20px);
     }
-    
+
     .caption {
         bottom: max(20px, calc(20px + env(safe-area-inset-bottom)));
         left: 50%;
@@ -227,16 +225,15 @@ p {
         margin-left: max(20px, env(safe-area-inset-left) + 20px);
         margin-top: max(20px, env(safe-area-inset-top) + 20px);
         margin-right: max(20px, env(safe-area-inset-right) + 20px);
-        z-index: 20;
         margin-block-start: 0em;
         margin-block-end: 0em;
     }
-    
+
     .info-text p {
         font-size: 23px !important;
         margin-top: 20px;
     }
-    
+
     .slideshow-image,
     .slideshow-video {
         max-width: 80%;
