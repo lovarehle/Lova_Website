@@ -119,13 +119,21 @@ body {
     max-width: 95%;
     max-height: 80%;
     object-fit: contain;
-    
 }
 
-.slideshow-video {
-    width: 100%;
-    height: 100%;
-    
+/* Video specific styles to prevent interaction */
+video, .slideshow-video {
+    pointer-events: none !important;
+    touch-action: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+    object-fit: contain;
+}
+
+/* Also prevent interaction with iframes within videos */
+.slideshow-video iframe {
+    pointer-events: none !important;
+    touch-action: none !important;
 }
 
 .info-overlay {
@@ -202,6 +210,35 @@ p {
 .fullscreen-element {
     height: 100vh; /* Fallback */
     height: calc(var(--vh, 1vh) * 100);
+}
+
+/* Special iOS/Mobile fixes */
+@supports (-webkit-touch-callout: none) {
+    /* Force video to behave like GIF on iOS */
+    video {
+        -webkit-touch-callout: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+        pointer-events: none !important;
+        touch-action: none !important;
+    }
+    
+    /* Override any browser-specific video controls */
+    video::-webkit-media-controls {
+        display: none !important;
+    }
+    
+    video::-webkit-media-controls-panel {
+        display: none !important;
+    }
+    
+    video::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+    
+    video::-webkit-media-controls-start-playback-button {
+        display: none !important;
+    }
 }
 
 @media (min-width: 730px) {
