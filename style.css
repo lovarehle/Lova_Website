@@ -121,8 +121,9 @@ body {
     object-fit: contain;
 }
 
-/* Video specific styles to prevent interaction */
-video, .slideshow-video {
+/* Video specific styles to prevent interaction - but NOT for Vimeo */
+/* Target videos that are NOT inside a .vimeo-embed */
+.slideshow-video:not(.vimeo-embed) {
     pointer-events: none !important;
     touch-action: none !important;
     -webkit-user-select: none !important;
@@ -130,8 +131,30 @@ video, .slideshow-video {
     object-fit: contain;
 }
 
-/* Also prevent interaction with iframes within videos */
-.slideshow-video iframe {
+/* Improved Vimeo styling */
+.vimeo-embed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95% !important;
+    height: 80% !important;
+    max-width: 95%;
+    max-height: 80%;
+}
+
+/* Specifically target the iframe inside vimeo-embed */
+.vimeo-embed iframe,
+iframe.vimeo-iframe {
+    width: 95% !important;
+    height: 80% !important;
+    max-width: 95%;
+    max-height: 80%;
+    pointer-events: auto !important;
+    touch-action: auto !important;
+}
+
+/* Regular iframe restrictions for non-Vimeo content */
+.slideshow-video:not(.vimeo-embed) iframe {
     pointer-events: none !important;
     touch-action: none !important;
 }
@@ -212,10 +235,11 @@ p {
     height: calc(var(--vh, 1vh) * 100);
 }
 
-/* Special iOS/Mobile fixes */
+/* Special iOS/Mobile fixes - but exclude Vimeo */
 @supports (-webkit-touch-callout: none) {
     /* Force video to behave like GIF on iOS */
-    video {
+    /* Target video elements that are NOT inside a .vimeo-embed */
+    .slideshow-video:not(.vimeo-embed) {
         -webkit-touch-callout: none !important;
         -webkit-user-select: none !important;
         user-select: none !important;
@@ -223,20 +247,20 @@ p {
         touch-action: none !important;
     }
     
-    /* Override any browser-specific video controls */
-    video::-webkit-media-controls {
+    /* Override any browser-specific video controls (but not for Vimeo) */
+    .slideshow-video:not(.vimeo-embed)::-webkit-media-controls {
         display: none !important;
     }
     
-    video::-webkit-media-controls-panel {
+    .slideshow-video:not(.vimeo-embed)::-webkit-media-controls-panel {
         display: none !important;
     }
     
-    video::-webkit-media-controls-play-button {
+    .slideshow-video:not(.vimeo-embed)::-webkit-media-controls-play-button {
         display: none !important;
     }
     
-    video::-webkit-media-controls-start-playback-button {
+    .slideshow-video:not(.vimeo-embed)::-webkit-media-controls-start-playback-button {
         display: none !important;
     }
 }
@@ -284,11 +308,28 @@ p {
         font-size: 23px !important;
         margin-top: 20px;
     }
+    
     .slideshow-image,
     .slideshow-video {
         max-width: 80%;
         max-height: 80%;
         object-fit: contain;
+    }
+    
+    /* Improved desktop Vimeo styling */
+    .vimeo-embed {
+        width: 80% !important;
+        height: 80% !important;
+        max-width: 80%;
+        max-height: 80%;
+    }
+    
+    .vimeo-embed iframe,
+    iframe.vimeo-iframe {
+        width: 80% !important;
+        height: 80% !important;
+        max-width: 80%;
+        max-height: 80%;
     }
 
     .header-text {
@@ -298,11 +339,7 @@ p {
         transform: translateX(-50%);
         z-index: 2;
         opacity: 1;
-        transition: opacity 0.5s ease;
-        cursor: default;
-        font-size: 23px !important;
-    }
-}
+    }}
 
 /* Safari-specific fixes */
 @supports (-webkit-touch-callout: none) {

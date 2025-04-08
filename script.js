@@ -4,7 +4,7 @@ function updateViewportHeight() {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-  
+
 const mediaItemsRaw = [
     { url: 'images/CBxVitra_postcards.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Postcards. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
@@ -13,9 +13,10 @@ const mediaItemsRaw = [
     { url: 'images/SG_display.gif', caption: 'Specific Generic – SG Display, Typeface. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OptiLife_prospect.gif', caption: 'OptiLife – Graduating Project, Prospect.' },
     {
-      url: '<iframe src="https://player.vimeo.com/video/1071040688?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="width:100%;height:100%;object-fit:contain;" title="OptiLife"></iframe><script src="https://player.vimeo.com/api/player.js"></script>',
-      caption: 'OptiLife – Graduating Project, Ad.',
-      hideOnMobile: true
+        url: '<iframe src="https://player.vimeo.com/video/1071040688?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="width:100%;height:100%;object-fit:contain;" title="OptiLife"></iframe><script src="https://player.vimeo.com/api/player.js"></script>',
+        caption: 'OptiLife – Graduating Project, Ad.',
+        hideOnMobile: true,
+        isVimeo: true // Mark this item specifically as Vimeo
     },
     { url: 'images/om_bofaf_video_3.mp4', caption: 'OnceMore – Book of Forests & Fabrics. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OM_4.jpg', caption: 'OnceMore – Giveaway. Team: Ludvig Weingarten & Ramiro Oblitas' },
@@ -23,7 +24,7 @@ const mediaItemsRaw = [
     { url: 'images/SGxKB-9704-65993.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas' },
     { url: 'images/SGxKB-9692-2.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas' },
     { url: 'images/Menuboard_roots.jpg', caption: 'Roots – Visual Identity, Menu Boards. Zürich. Team: Ramiro Oblitas' },
-    { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
+    { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag. Zürich. Team: Ramiro Oblitas' },
     { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Roots_website.mp4', caption: 'Roots – Visual Identity, Website. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Rondo_scan_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design, #1. Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
@@ -36,22 +37,22 @@ const mediaItemsRaw = [
 
 // Function to make videos behave like GIFs
 function setupVideoAsGif(video) {
-  video.autoplay = true;
-  video.muted = true;
-  video.loop = true;
-  video.playsInline = true;
-  video.preload = 'auto';
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'auto';
 
-  // Disable fullscreen, download, and other controls
-  video.setAttribute('disablePictureInPicture', '');
-  video.setAttribute('controlslist', 'nodownload nofullscreen noremote');
-  video.removeAttribute('controls');  // Ensure no native controls
+    // Disable fullscreen, download, and other controls
+    video.setAttribute('disablePictureInPicture', '');
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremote');
+    video.removeAttribute('controls');  // Ensure no native controls
 
-  // Disable pointer interaction, so it behaves like a gif
-  video.style.pointerEvents = 'none';
-  video.style.touchAction = 'none';
-  video.style.webkitUserSelect = 'none';
-  video.style.userSelect = 'none';
+    // Disable pointer interaction, so it behaves like a gif
+    video.style.pointerEvents = 'none';
+    video.style.touchAction = 'none';
+    video.style.webkitUserSelect = 'none';
+    video.style.userSelect = 'none';
 }
 
 // Determine if the user is on a mobile device (screen width <= 730px)
@@ -155,20 +156,20 @@ function enforceFontSizes() {
 function flashMedia() {
     // Filter out only image items (no videos or vimeo)
     const imageItems = mediaItems.filter(item => getMediaType(item.url) === 'image');
-    
+
     // Get 6 random images without duplicates
     let flashImages = [];
     const tempImages = [...imageItems]; // Create a copy to avoid modifying the original array
-    
+
     // Select 6 random images or as many as available if less than 6
     const numToSelect = Math.min(6, tempImages.length);
-    
+
     for (let i = 0; i < numToSelect; i++) {
         const randomIndex = Math.floor(Math.random() * tempImages.length);
         flashImages.push(tempImages[randomIndex]);
         tempImages.splice(randomIndex, 1); // Remove selected item to avoid duplicates
     }
-    
+
     let currentFlashIndex = 0;
 
     function flashNextMedia() {
@@ -194,7 +195,7 @@ function flashMedia() {
             enforceFontSizes();
         }
     }
-    
+
     flashNextMedia();
 }
 
@@ -220,7 +221,9 @@ function updateMedia() {
         mediaElement.dataset.src = item.url;
         mediaElement.classList.add('slideshow-video');
         // Apply GIF-like settings to the video
-        setupVideoAsGif(mediaElement);
+        if (!item.isVimeo) {
+            setupVideoAsGif(mediaElement);
+        }
         mediaElement.onerror = (error) => {
             console.error('Video loading error:', error);
             const placeholder = document.createElement('img');
@@ -231,8 +234,8 @@ function updateMedia() {
         mediaElement = document.createElement('div');
         mediaElement.dataset.src = item.url;
         mediaElement.classList.add('slideshow-video');
-        // Add inline styling to any iframe that might be added later
-        mediaElement.dataset.style = 'pointer-events: none; touch-action: none;';
+        // Add class to identify it as Vimeo content
+        mediaElement.classList.add('vimeo-embed');
     }
 
     if (mediaElement) {
@@ -244,7 +247,7 @@ function updateMedia() {
 
     // Apply lazy loading
     if (mediaType === 'video' || mediaType === 'vimeo') {
-        observeMedia(mediaElement, mediaType);
+        observeMedia(mediaElement, mediaType, item.isVimeo);
     }
 
     // Handle hide-on-mobile class
@@ -255,7 +258,7 @@ function updateMedia() {
     }
 }
 
-function observeMedia(element, mediaType) {
+function observeMedia(element, mediaType, isVimeo) {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -263,7 +266,9 @@ function observeMedia(element, mediaType) {
                     element.src = element.dataset.src;
                     element.removeAttribute('data-src');
                     // Re-apply GIF-like settings after source is set
-                    setupVideoAsGif(element);
+                    if (!isVimeo) {
+                        setupVideoAsGif(element);
+                    }
                     // Try to play the video immediately
                     const playPromise = element.play();
                     if (playPromise !== undefined) {
@@ -277,13 +282,26 @@ function observeMedia(element, mediaType) {
                         });
                     }
                 } else if (mediaType === 'vimeo') {
+                    // Set the HTML content (which contains the iframe)
                     element.innerHTML = element.dataset.src;
                     element.removeAttribute('data-src');
-                    // Try to handle iframes
-                    const iframe = element.querySelector('iframe');
-                    if (iframe) {
-                        iframe.style.pointerEvents = 'none';
-                        iframe.style.touchAction = 'none';
+                    
+                    // Find and properly style the Vimeo iframe
+                    const vimeoIframe = element.querySelector('iframe');
+                    if (vimeoIframe) {
+                        // Apply the vimeo-iframe class for styling
+                        vimeoIframe.classList.add('vimeo-iframe');
+                        
+                        // Make sure Vimeo iframe maintains consistent sizing
+                        const sizePercent = window.innerWidth < 730 ? '95%' : '80%';
+                        vimeoIframe.style.width = sizePercent;
+                        vimeoIframe.style.height = '80%';
+                        vimeoIframe.style.maxWidth = sizePercent;
+                        vimeoIframe.style.maxHeight = '80%';
+                        
+                        // Ensure it's interactive
+                        vimeoIframe.style.pointerEvents = 'auto';
+                        vimeoIframe.style.touchAction = 'auto';
                     }
                 }
                 observer.unobserve(element);
@@ -342,8 +360,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     window.addEventListener('resize', enforceFontSizes);
 
-    // Apply GIF-like behavior to all videos on the page
-    document.querySelectorAll('video').forEach(setupVideoAsGif);
+    // Apply GIF-like behavior to regular videos on the page, but not Vimeo embeds
+    document.querySelectorAll('video:not(.vimeo-video)').forEach(setupVideoAsGif);
 
     // Add event listener for left and right arrow keys
     document.addEventListener('keydown', function(event) {
@@ -359,10 +377,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         updateMedia();
     });
     
-    // Special handler for iOS to ensure videos play correctly
+    // Special handler for iOS to ensure videos play correctly (but not Vimeo)
     if (/iPhone|iPad|iPod|iOS/i.test(navigator.userAgent)) {
         document.addEventListener('touchstart', function initialTouch() {
-            const videos = document.querySelectorAll('video');
+            const videos = document.querySelectorAll('video:not(.vimeo-video)');
             videos.forEach(video => {
                 if (video.paused) {
                     const playPromise = video.play();
@@ -381,9 +399,13 @@ function setupCursorChange() {
         // Check if mouse is over the info button or if any overlay is active
         const isOverInfo = event.target === infoButton;
         const isOverlayActive = infoOverlay.style.display === 'flex';
+        const isOverVimeo = event.target.classList && (
+            event.target.classList.contains('vimeo-iframe') || 
+            event.target.closest('.vimeo-embed')
+        );
         
         // Set cursor to pointer when over interactive elements
-        if (isOverInfo || isOverlayActive) {
+        if (isOverInfo || isOverlayActive || isOverVimeo) {
             container.style.cursor = 'pointer';
         } else {
             // Otherwise set cursor based on position (for next/previous)
@@ -393,10 +415,19 @@ function setupCursorChange() {
 }
 
 document.addEventListener('click', event => {
+    // Check if clicking on Vimeo content
+    const isVimeoClick = event.target.classList && (
+        event.target.classList.contains('vimeo-iframe') || 
+        event.target.closest('.vimeo-embed')
+    );
+    
     if (event.target === infoButton) {
         infoOverlay.style.display = infoOverlay.style.display === 'flex' ? 'none' : 'flex';
         infoButton.textContent = infoOverlay.style.display === 'flex' ? '(Close)' : '(Info)';
         enforceFontSizes();
+    } else if (isVimeoClick) {
+        // Do nothing if clicking on Vimeo content to allow interaction
+        event.stopPropagation();
     } else {
         // For clicks elsewhere, just navigate to next/previous image
         event.clientX > window.innerWidth / 2 ? nextMedia() : previousMedia();
