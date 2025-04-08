@@ -333,6 +333,7 @@ p {
     }
 
     .header-text {
+        font-size: 23px !important;
         position: absolute;
         top: 20px;
         left: 50%;
