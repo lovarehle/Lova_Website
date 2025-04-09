@@ -24,7 +24,7 @@ const mediaItemsRaw = [
     { url: 'images/Fjäder_.jpg', caption: 'OnceMore – Sales Tool. Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/SGxKB-entrence.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas', fullViewport: true},
     { url: 'images/SGxKB-9692-2.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas', fullViewport: true},
-    { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag. Zürich. Team: Ramiro Oblitas' },
+    { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Menuboard_roots.jpg', caption: 'Roots – Visual Identity, Menu Boards. Zürich. Team: Ramiro Oblitas' },
     { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/Roots_website.mp4', caption: 'Roots – Visual Identity, Website. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
