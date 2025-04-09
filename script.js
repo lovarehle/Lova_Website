@@ -6,9 +6,10 @@ function updateViewportHeight() {
 }
 
 const mediaItemsRaw = [
-    { url: 'images/CBxVitra_postcards.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Postcards. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Collective_Vitra_some_2.mp4', caption: 'Collective Bakery × Vitra – Visual Identity, Socials. Team: Ludvig Weingarten & Ramiro Oblitas' },
+    { url: 'images/CBxVitra_postcards.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Postcards. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas'},
+    { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
+    { url: 'images/CBxVitra_Totebag.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Totebag. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas', fullViewport: true },
     { url: 'images/SG_logo.mp4', caption: 'Specific Generic – SG Display, Typeface. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/SG_display.gif', caption: 'Specific Generic – SG Display, Typeface. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OptiLife_prospect.gif', caption: 'OptiLife – Graduating Project, Prospect.' },
@@ -20,19 +21,20 @@ const mediaItemsRaw = [
     },
     { url: 'images/om_bofaf_video_3.mp4', caption: 'OnceMore – Book of Forests & Fabrics. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OM_4.jpg', caption: 'OnceMore – Giveaway. Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/Fjäder_.jpg', caption: 'OnceMore – Sales Tool. Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/SGxKB-9704-65993.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas' },
-    { url: 'images/SGxKB-9692-2.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas' },
+    { url: 'images/Fjäder_.jpg', caption: 'OnceMore – Sales Tool. Team: Ludvig Weingarten & Ramiro Oblitas'},
+    { url: 'images/SGxKB-entrence.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas', fullViewport: true},
+    { url: 'images/SGxKB-9692-2.jpg', caption: 'OnceMore – Event Design. Konstnärshuset, Stockholm. Team: Ramiro Oblitas', fullViewport: true},
     { url: 'images/Menuboard_roots.jpg', caption: 'Roots – Visual Identity, Menu Boards. Zürich. Team: Ramiro Oblitas' },
     { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag. Zürich. Team: Ramiro Oblitas' },
-    { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
+    { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/Roots_website.mp4', caption: 'Roots – Visual Identity, Website. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Rondo_scan_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design, #1. Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
-    { url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design, #2. Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
+    { url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design, #2. Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill'},
     { url: 'images/Rondo_frilagd.jpg', caption: 'Rondo – Broadsheet Magazine Design, #3. Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
-    { url: 'images/WoE_podium.jpg', caption: 'Works of Essence – Visual Identity, Podium. Team: Eliot Siekkinen Lydéen' },
-    { url: 'images/WoE_posters.jpeg', caption: 'Works of Essence – Visual Identity, Posters. Team: Eliot Siekkinen Lydéen' },
     { url: 'images/WoE_Story.mp4', caption: 'Works of Essence – Visual Identity, Socials. Team: Eliot Siekkinen Lydéen' },
+    { url: 'images/WoE_podium.jpg', caption: 'Works of Essence – Visual Identity, Podium. Team: Eliot Siekkinen Lydéen' },
+    { url: 'images/WoE_posters_.jpg', caption: 'Works of Essence – Visual Identity, Posters. Team: Eliot Siekkinen Lydéen', fullViewport: true  },
+
 ];
 
 // Function to make videos behave like GIFs
@@ -216,10 +218,21 @@ function updateMedia() {
         mediaElement = document.createElement('img');
         mediaElement.src = preloadedMedia[currentMediaIndex].src || item.url;
         mediaElement.classList.add('slideshow-image');
+        
+        // Add fullViewport class if specified
+        if (item.fullViewport) {
+            mediaElement.classList.add('full-viewport');
+        }
     } else if (mediaType === 'video') {
         mediaElement = document.createElement('video');
         mediaElement.dataset.src = item.url;
         mediaElement.classList.add('slideshow-video');
+        
+        // Add fullViewport class if specified
+        if (item.fullViewport) {
+            mediaElement.classList.add('full-viewport');
+        }
+        
         // Apply GIF-like settings to the video
         if (!item.isVimeo) {
             setupVideoAsGif(mediaElement);
@@ -236,6 +249,11 @@ function updateMedia() {
         mediaElement.classList.add('slideshow-video');
         // Add class to identify it as Vimeo content
         mediaElement.classList.add('vimeo-embed');
+        
+        // Add fullViewport class if specified
+        if (item.fullViewport) {
+            mediaElement.classList.add('full-viewport');
+        }
     }
 
     if (mediaElement) {
@@ -292,12 +310,21 @@ function observeMedia(element, mediaType, isVimeo) {
                         // Apply the vimeo-iframe class for styling
                         vimeoIframe.classList.add('vimeo-iframe');
                         
-                        // Make sure Vimeo iframe maintains consistent sizing
-                        const sizePercent = window.innerWidth < 730 ? '95%' : '80%';
-                        vimeoIframe.style.width = sizePercent;
-                        vimeoIframe.style.height = '80%';
-                        vimeoIframe.style.maxWidth = sizePercent;
-                        vimeoIframe.style.maxHeight = '80%';
+                        // Check if parent has fullViewport class
+                        if (element.classList.contains('full-viewport')) {
+                            vimeoIframe.classList.add('full-viewport');
+                            vimeoIframe.style.width = '100%';
+                            vimeoIframe.style.height = '100%';
+                            vimeoIframe.style.maxWidth = '100%';
+                            vimeoIframe.style.maxHeight = '100%';
+                        } else {
+                            // Make sure Vimeo iframe maintains consistent sizing
+                            const sizePercent = window.innerWidth < 730 ? '95%' : '80%';
+                            vimeoIframe.style.width = sizePercent;
+                            vimeoIframe.style.height = '80%';
+                            vimeoIframe.style.maxWidth = sizePercent;
+                            vimeoIframe.style.maxHeight = '80%';
+                        }
                         
                         // Ensure it's interactive
                         vimeoIframe.style.pointerEvents = 'auto';
