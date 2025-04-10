@@ -12,7 +12,7 @@ const mediaItemsRaw = [
     { url: 'images/CBxVitra_Totebag.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Totebag. Zürich. Team: Ludvig Weingarten & Ramiro Oblitas', fullViewport: true },
     { url: 'images/SG_logo.mp4', caption: 'Specific Generic – SG Display, Typeface. Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/SG_display.gif', caption: 'Specific Generic – SG Display, Typeface. Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/OptiLife_prospect.gif', caption: 'OptiLife – Graduating Project, Prospect.' },
+    { url: 'images/OptiLife_prospect.gif', caption: 'OptiLife – Graduating Project, Pamphlet.' },
     {
         url: '<iframe src="https://player.vimeo.com/video/1071040688?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="width:100%;height:100%;object-fit:contain;" title="OptiLife"></iframe><script src="https://player.vimeo.com/api/player.js"></script>',
         caption: 'OptiLife – Graduating Project, Ad.',
