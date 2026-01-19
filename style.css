@@ -13,9 +13,17 @@ head::after {
     display: block;
 }
 
+@font-face {
+    font-family: 'Unica77';
+    src: url('assets/Unica77-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 body {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Unica77', serif;
     font-kerning: normal;
     font-weight: 200;
     background-color: #000;
@@ -24,6 +32,7 @@ body {
     text-align: left;
     position: relative;
     color: rgb(255, 255, 255);
+
 
     /* Prevent scroll bounce */
     height: 100vh;
@@ -288,7 +297,7 @@ p {
 
 @media (min-width: 730px) {
     body {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .counter,
@@ -296,7 +305,7 @@ p {
     .info,
     .info-text,
     .info-text p{
-        font-size: 23px !important;
+        font-size: 20px !important;
     }
 
     .counter {
@@ -326,7 +335,7 @@ p {
     }
     
     .info-text p {
-        font-size: 23px !important;
+        font-size: 20px !important;
         margin-top: 20px;
     }
     
@@ -354,7 +363,7 @@ p {
     }
 
     .header-text {
-             font-size: 23px !important;
+             font-size: 20px !important;
         position: absolute;
         top: 20px;
         left: 50%;
