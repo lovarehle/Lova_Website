@@ -7,7 +7,7 @@ function updateViewportHeight() {
 
 const mediaItemsRaw = [
     { url: 'images/Collective_Vitra_some_2.mp4', caption: 'Collective Bakery × Vitra – Visual Identity, Socials<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil<br>Team: Ludvig Weingarten & Ramiro Oblitas', fullViewport: true },
+    { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/CBxVitra_postcards.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Postcards<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/CBxVitra_vinyl-floor.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Wayfinding<br>Team: Ludvig Weingarten & Ramiro Oblitas', fullViewport: true },
     { url: 'images/CBxVitra_Totebag.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Totebag<br>Team: Ludvig Weingarten & Ramiro Oblitas', fullViewport: true },
@@ -30,7 +30,7 @@ const mediaItemsRaw = [
     { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/Roots_website.mp4', caption: 'Roots – Visual Identity, Website<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/Rondo_scan_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
-    { url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill'},
+    { url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill', fullViewport: true },
     { url: 'images/Rondo_frilagd.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
     { url: 'images/WoE_Story.mp4', caption: 'Works of Essence – Visual Identity, Socials<br>Team: Eliot Siekkinen Lydéen' },
     { url: 'images/WoE_podium.jpg', caption: 'Works of Essence – Visual Identity, Podium<br>Team: Eliot Siekkinen Lydéen' },
