@@ -6,6 +6,10 @@ function updateViewportHeight() {
 }
 
 const mediaItemsRaw = [
+    { url: 'images/W_1.mp4', caption: 'W+ – Visual Identity, Stationary<br>Team: Stockholm Design Lab'},
+    { url: 'images/W+_2.gif', caption: 'W+ – Visual Identity, Catalog<br>Team: Stockholm Design Lab'},
+    { url: 'images/W+_3.png', caption: 'W+ – Visual Identity, Packaging<br>Team: Stockholm Design Lab'},
+    { url: 'images/W+_4.gif', caption: 'W+ – Visual Identity, Socials<br>Team: Stockholm Design Lab'},
     { url: 'images/Collective_Vitra_some_2.mp4', caption: 'Collective Bakery × Vitra – Visual Identity, Socials<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/CBxVitra_postcards.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Postcards<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
