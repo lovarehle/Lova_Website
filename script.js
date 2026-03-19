@@ -6,9 +6,9 @@ function updateViewportHeight() {
 }
 
 const mediaItemsRaw = [
-    { url: 'images/W_1.mp4', caption: 'W+ – Visual Identity, Stationary<br>Team: Stockholm Design Lab'},
+   { url: 'images/W_1.mp4', caption: 'W+ – Visual Identity, Stationary<br>Team: Stockholm Design Lab'},
+{ url: 'images/W+_3.png', caption: 'W+ – Visual Identity, Packaging<br>Team: Stockholm Design Lab'},
     { url: 'images/W+_2.gif', caption: 'W+ – Visual Identity, Catalog<br>Team: Stockholm Design Lab'},
-    { url: 'images/W+_3.png', caption: 'W+ – Visual Identity, Packaging<br>Team: Stockholm Design Lab'},
     { url: 'images/W+_4.gif', caption: 'W+ – Visual Identity, Socials<br>Team: Stockholm Design Lab'},
     { url: 'images/Collective_Vitra_some_2.mp4', caption: 'Collective Bakery × Vitra – Visual Identity, Socials<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/CBxVitra_vinyls.jpg', caption: 'Collective Bakery × Vitra – Visual Identity, Window Foil<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
@@ -18,15 +18,14 @@ const mediaItemsRaw = [
     { url: 'images/SG_logo.mp4', caption: 'Specific Generic – SG Display, Typeface<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/SG_display.gif', caption: 'Specific Generic – SG Display, Typeface<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OptiLife_prospect.gif', caption: 'OptiLife – Graduating Project, Pamphlet' },
-    {
-        url: '<iframe src="https://player.vimeo.com/video/1071040688?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="width:100%;height:100%;object-fit:contain;" title="OptiLife"></iframe><script src="https://player.vimeo.com/api/player.js"></script>',
+    { url: '<iframe src="https://player.vimeo.com/video/1071040688?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="width:100%;height:100%;object-fit:contain;" title="OptiLife"></iframe><script src="https://player.vimeo.com/api/player.js"></script>',
         caption: 'OptiLife – Graduating Project, Ad',
         hideOnMobile: true,
         isVimeo: true // Mark this item specifically as Vimeo
     },
     { url: 'images/om_bofaf_video_3.mp4', caption: 'OnceMore – Book of Forests & Fabrics<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
     { url: 'images/OM_4.jpg', caption: 'OnceMore – Giveaway<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/Fjäder_.jpg', caption: 'OnceMore – Sales Tool<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
+   // { url: 'images/Fjäder_.jpg', caption: 'OnceMore – Sales Tool<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/SGxKB-entrence.jpg', caption: 'OnceMore – Event Design, Konstnärshuset<br>Team: Ramiro Oblitas', fullViewport: true},
     { url: 'images/SGxKB-9692-2.jpg', caption: 'OnceMore – Event Design, Konstnärshuset<br>Team: Ramiro Oblitas', fullViewport: true},
     { url: 'images/bag_roots.jpg', caption: 'Roots – Visual Identity, Takeaway Bag<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
