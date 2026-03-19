@@ -33,12 +33,12 @@ const mediaItemsRaw = [
     { url: 'images/Menuboard_roots.jpg', caption: 'Roots – Visual Identity, Menu Boards<br>Team: Ramiro Oblitas' },
     { url: 'images/roots_signage.jpg', caption: 'Roots – Visual Identity, Signage<br>Team: Ludvig Weingarten & Ramiro Oblitas'},
     { url: 'images/Roots_website.mp4', caption: 'Roots – Visual Identity, Website<br>Team: Ludvig Weingarten & Ramiro Oblitas' },
-    { url: 'images/Rondo_scan_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
-    { url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill', fullViewport: true },
-    { url: 'images/Rondo_frilagd.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
-    { url: 'images/WoE_Story.mp4', caption: 'Works of Essence – Visual Identity, Socials<br>Team: Eliot Siekkinen Lydéen' },
-    { url: 'images/WoE_podium.jpg', caption: 'Works of Essence – Visual Identity, Podium<br>Team: Eliot Siekkinen Lydéen' },
-    { url: 'images/WoE_posters_.jpg', caption: 'Works of Essence – Visual Identity, Posters<br>Team: Eliot Siekkinen Lydéen', fullViewport: true  },
+    //{ url: 'images/Rondo_scan_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
+    //{ url: 'images/DSC08326_lowres.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill', fullViewport: true },
+    //{ url: 'images/Rondo_frilagd.jpg', caption: 'Rondo – Broadsheet Magazine Design<br>Team: Ida Gustafsson, Anna Ericsson Hybbinette & Wasim Harwill' },
+    //{ url: 'images/WoE_Story.mp4', caption: 'Works of Essence – Visual Identity, Socials<br>Team: Eliot Siekkinen Lydéen' },
+    //{ url: 'images/WoE_podium.jpg', caption: 'Works of Essence – Visual Identity, Podium<br>Team: Eliot Siekkinen Lydéen' },
+   // { url: 'images/WoE_posters_.jpg', caption: 'Works of Essence – Visual Identity, Posters<br>Team: Eliot Siekkinen Lydéen', fullViewport: true  },
 
 ];
 
